@@ -8,3 +8,10 @@ test('should create new Character', () => {
 
   expect(received).toEqual(expected);
 });
+
+test('error whet try to create new Character', () => {
+  function create() {
+    return new Character('Annnnnnnnnn');
+  }
+  expect(create).toThrowError('Длина имени должна быть от 2 до 10 символов');
+});

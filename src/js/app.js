@@ -4,22 +4,17 @@ export default class Team {
     this.members = new Set();
   }
 
-  add(obj) {
+  addMember(obj) {
     if (this.members.has(obj)) {
       throw new Error('Такой персонаж уже добавлен');
     } else {
       this.members.add(obj);
     }
-    return this.members;
   }
 
   addAll(...objs) {
-    objs.forEach((obj) => {
-      if (this.members.has(obj)) {
-        throw new Error('Такой персонаж уже добавлен');
-      } else {
-        this.members.add(obj);
-      }
+    objs.forEach((item) => {
+      this.members.add(item);
     });
   }
 
