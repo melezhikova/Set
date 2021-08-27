@@ -6,8 +6,8 @@ test('should add new member', () => {
   const members = new Team();
   members.addMember(ann);
 
-  const expected = new Set();
-  expected.add(ann);
+  const expected = new Team();
+  expected.addAll(ann);
 
   expect(members).toEqual(expected);
 });
@@ -30,9 +30,9 @@ test('should add new members', () => {
   members.addMember(ann);
   members.addAll(ann, ivan);
 
-  const expected = new Set();
-  expected.add(ann);
-  expected.add(ivan);
+  const expected = new Team();
+  expected.addMember(ann);
+  expected.addMember(ivan);
 
   expect(members).toEqual(expected);
 });
