@@ -6,10 +6,10 @@ test('should add new member', () => {
   const members = new Team();
   members.addMember(ann);
 
-  const expected = new Team();
-  expected.addAll(ann);
+  const expected = new Set();
+  expected.add(ann);
 
-  expect(members).toEqual(expected);
+  expect(members.members).toEqual(expected);
 });
 
 test('error when try to add new member', () => {
@@ -30,11 +30,11 @@ test('should add new members', () => {
   members.addMember(ann);
   members.addAll(ann, ivan);
 
-  const expected = new Team();
-  expected.addMember(ann);
-  expected.addMember(ivan);
+  const expected = new Set();
+  expected.add(ann);
+  expected.add(ivan);
 
-  expect(members).toEqual(expected);
+  expect(members.members).toEqual(expected);
 });
 
 test('get array from members', () => {
